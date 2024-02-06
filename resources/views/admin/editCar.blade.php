@@ -75,52 +75,76 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="x_content">
-									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<br />                                                                                      
+									
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('updateCar',$Carlists->id) }}" method="post"  enctype="multipart/form-data">
+									@csrf 
+									@method('put')
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" required="required" class="form-control ">
+												<input type="text" id="title" required="required" class="form-control " name="carName" value="{{ $Carlists->carName}}">
 											</div>
+											@error('carName')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">content <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
+												<textarea id="content" name="content" required="required" class="form-control">{{ $Carlists->content}}</textarea>
 											</div>
+											@error('content')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="luggage" class="form-control" type="number" name="luggage" required="required">
+												<input id="luggage" class="form-control" type="number" name="luggage" required="required" value="{{ $Carlists->luggage}}">
 											</div>
+											@error('luggage')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="doors" class="form-control" type="number" name="doors" required="required">
+												<input id="doors" class="form-control" type="number" name="doors" required="required" value="{{ $Carlists->doors}}">
 											</div>
+											@error('doors')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="passengers" class="form-control" type="number" name="passengers" required="required">
+												<input id="passengers" class="form-control" type="number" name="passengers" required="required" value="{{ $Carlists->passengers}}">
 											</div>
+											@error('passengers')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" name="price" required="required">
+												<input id="price" class="form-control" type="number" name="price" required="required" value="{{ $Carlists->price}}">
 											</div>
+											@error('price')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat">
+													<input type="checkbox" class="flat" name="active" @checked($Carlists->active)>
 												</label>
+												@error('active')
+											{{ $message }}
+											@enderror
 											</div>
 										</div>
 										<div class="item form-group">
@@ -128,20 +152,31 @@
 											</label>
 											<div class="col-md-6 col-sm-6 ">
 												<input type="file" id="image" name="image" required="required" class="form-control">
-												<img src="../images/car_1.jpg" alt="" style="width: 300px;">
+												<img src="{{ asset ('Assets/admin/images/'. $Carlists->image) }}  " alt="" style="width: 300px;">
 											</div>
+											@error('image')
+											{{ $message }}
+											@enderror
 										</div>
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<select class="form-control" name="category" id="">
-													<option value=" ">Select Category</option>
-													<option value="cat1">Category 1</option>
-													<option value="cat2">Category 2</option>
+												<select class="form-control" name="categoryId" id="">
+												@foreach($categories as $cat)
+												<option value="{{ $cat->id }}">{{ $cat->categoryName }}</option>
+
+												<option value="{{ $cat->id }}" {{ $cat->id == $cat->categoryId ? 'selected' : '' }}>
+												{{ $cat->categoryName  }}
+												</option>  
+													@endforeach 
+
 												</select>
 											</div>
+											@error('category')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">

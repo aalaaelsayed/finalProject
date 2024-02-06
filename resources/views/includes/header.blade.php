@@ -26,12 +26,12 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="{{ Route ('index') }}" class="nav-link">Home</a></li>
-                  <li><a href="{{ Route ('listing') }}" class="nav-link">Listing</a></li>
-                  <li><a href="{{ Route ('testimonials') }}" class="nav-link">Testimonials</a></li>
-                  <li><a href="{{ Route ('blog') }}" class="nav-link">Blog</a></li>
-                  <li><a href="{{ Route ('about') }}" class="nav-link">About</a></li>
-                  <li><a href="{{ Route ('Contact') }}" class="nav-link">Contact</a></li>
+                  <li class="active"><a href="{{ Route ('index') }}" class="nav-link  {{ request()->routeIs('index') ? 'active' : '' }}">Home</a></li>
+                  <li><a href="{{ Route ('listing') }}" class="nav-link  {{ request()->routeIs('listing') ? 'active' : '' }}">Listing</a></li>
+                  <li><a href="{{ Route ('testimonials') }}" class="nav-link   {{ request()->routeIs('testimonials') ? 'active' : '' }}">Testimonials</a></li>
+                  <li><a href="{{ Route ('blog') }}" class="nav-link   {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a></li>
+                  <li><a href="{{ Route ('about') }}" class="nav-link   {{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
+                  <li><a href="{{ Route ('Contact') }}" class="nav-link   {{ request()->routeIs('Contact') ? 'active' : '' }}">Contact</a></li>
                 </ul>
               </nav>
             </div>

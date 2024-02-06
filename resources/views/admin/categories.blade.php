@@ -89,17 +89,15 @@
 
 
                       <tbody>
+                      @foreach($categories as $cat)
+
                         <tr>
-                          <td>Category</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
+                          <td>{{ $cat->categoryName }}</td>
+                          <td><a  href="editcat/{{ $cat->id }}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"> </a></td>
+                          <td><a  href="deleteCategory/{{ $cat->id }}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"> </a></td>
                         </tr>
-                        <tr>
-                          <td>Category</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        
+                        @endforeach
+
                       </tbody>
                     </table>
                   </div>
