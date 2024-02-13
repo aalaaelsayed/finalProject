@@ -85,6 +85,9 @@
 											<div class="col-md-6 col-sm-6 ">
 												<input type="text" id="add-category" required="required" class="form-control "  name="categoryName" value="{{ $categories->categoryName}}">
 											</div>
+											@error('categoryName')
+											{{ $message }}
+											@enderror
 										</div>
 										
 										<div class="ln_solid"></div>

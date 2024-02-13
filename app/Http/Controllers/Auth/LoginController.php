@@ -3,6 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
+
+// use App\Http\Controllers\CarAdminController;
+// use App\Http\Controllers\ImageController;
+// use App\Http\Controllers\CategoryController;
+// use App\Http\Controllers\TestimonialsController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +32,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,4 +44,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+ 
+        public function credentials(Request $request){
+            if(is_string($request->email)){
+            return ['username'=>$request->email, 'password'=>$request->password];
+            }elseif(filter_var($request->email, FILTER_VALIDATE_EMAIL)){
+            return ['email'=>$request->email, 'password'=>$request->password];
+            }
+            }
+ 
 }
+   

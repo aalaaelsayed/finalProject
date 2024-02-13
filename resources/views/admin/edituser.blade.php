@@ -76,42 +76,59 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('updateuser',$Users->id) }}" method="post"  enctype="multipart/form-data">
+									@csrf 
+									@method('put')
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Full Name <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="text" id="first-name" required="required" class="form-control "  name="name" value="{{ $Users->name}}">
 											</div>
+											@error('name')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="user-name">Username <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="user-name" name="user-name" required="required" class="form-control">
+												<input type="text" id="user-name" name="username" required="required" class="form-control"  value="{{ $Users->username}}">
 											</div>
+											@error('username')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="email" class="form-control" type="email" name="email" required="required">
+												<input id="email" class="form-control" type="email" name="email" required="required" value="{{ $Users->email}}">
 											</div>
+											@error('email')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat">
+													<input type="checkbox" class="flat" name="active" @checked($Users->active) >
+
 												</label>
 											</div>
+											@error('active')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="password" id="password" name="password" required="required" class="form-control">
+												<input type="password" id="password" name="password" required="required" class="form-control" value="{{ $Users->password}}">
 											</div>
+											@error('password')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">

@@ -5,16 +5,12 @@ use App\Http\Controllers\CarAdminController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestimonialsController;
+use App\Http\Controllers\UserController;
 
 
 
 
-Route::prefix('admin')->group(function () {
-
-
-    // Route::get('addTestimonials', function () {
-    //     return view('admin.addTestimonials');
-    // })->name('addTestimonials');
+Route::prefix('admin')->middleware('verified')->group(function () {
     
 //////////////////////
 Route::get('creatcar',[CarAdminController::class,'create'])->name('creatcar');
@@ -38,6 +34,13 @@ Route::get('Testimonial',[TestimonialsController::class,'index'])->name('Testimo
 Route::get('edittest/{id}',[TestimonialsController::class,'edit'])->name('edittest');
 Route::put('updatetest/{id}',[TestimonialsController::class,'update'])->name('updatetest');
 Route::get('deletetest/{id}',[TestimonialsController::class,'destroy']);
+//////////////////////////////////////
+Route::get('users',[UserController::class,'index'])->name('users');
+Route::get('createuser',[UserController::class,'create'])->name('createuser');
+Route::post('addusers',[UserController::class,'store'])->name('addusers');
+Route::get('edituser/{id}',[UserController::class,'edit'])->name('edituser');
+Route::put('updateuser/{id}',[UserController::class,'update'])->name('updateuser');
+
 
 });
 ?>

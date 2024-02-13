@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use App\Models\User;
+use App\Http\Controllers\HomeController;
 
 class VerificationController extends Controller
 {
@@ -32,10 +35,20 @@ class VerificationController extends Controller
      *
      * @return void
      */
+  
     public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
-    }
+{
+    $this->middleware('auth');
+    $this->middleware('signed')->only('verify');
+    $this->middleware('throttle:6,1')->only('verify', 'resend');
+    
+    $this->middleware(function ($request, $next) {
+        if (auth()->check() && auth()->user()->isAdmin()) {
+            auth()->user()->markEmailAsVerified();
+        }
+        
+        return $next($request);
+    });
+}
+
 }

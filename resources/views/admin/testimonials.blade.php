@@ -88,28 +88,18 @@
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach($Testimonials as $test)
+
                         <tr>
-                          <td>Car 10</td>
-                          <td>250</td>
-                          <td>Yes</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
+                          <td>{{ $test->clientName }}</td>
+                          <td>{{ $test->profession }}</td>
+                          <td>@if($test->published)yes @else no @endif</td>
+                          <td> <a  href="edittest/{{ $test->id }}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"> </a></td>
+                          <td><a  href="deletetest/{{ $test->id }}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
                         </tr>
-                        <tr>
-                          <td>Car 1</td>
-                          <td>150</td>
-                          <td>Yes</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        <tr>
-                          <td>Car 2</td>
-                          <td>200</td>
-                          <td>Yes</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        
+                 
+                        @endforeach
+
                       </tbody>
                     </table>
                   </div>

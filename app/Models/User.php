@@ -20,6 +20,8 @@ class User extends Authenticatable implements MustVerifyEmail{
         'name',
         'email',
         'password',
+        'username',
+        'active',
     ];
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable implements MustVerifyEmail{
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function isAdmin()
+    {
+        return $this->active === 1; // Assuming 'active' attribute is set to 1 for admin users
+    }
+ 
 }

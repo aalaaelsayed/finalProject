@@ -87,6 +87,9 @@
 											<div class="col-md-6 col-sm-6 ">
 												<input type="text" id="title" required="required" class="form-control " name="carName">
 											</div>
+											@error('carName')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
@@ -94,30 +97,45 @@
 											<div class="col-md-6 col-sm-6 ">
 												<textarea id="content" name="content" required="required" class="form-control" >Contents</textarea>
 											</div>
+											@error('content')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="luggage" class="form-control" type="number" name="luggage" required="required">
 											</div>
+											@error('luggage')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="doors" class="form-control" type="number" name="doors" required="required" >
 											</div>
+											@error('doors')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="passengers" class="form-control" type="number" name="passengers" required="required">
 											</div>
+											@error('passengers')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
 												<input id="price" class="form-control" type="number" name="price" required="required">
 											</div>
+											@error('price')
+											{{ $message }}
+											@enderror
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align">Active</label>
@@ -133,6 +151,9 @@
 											<div class="col-md-6 col-sm-6 ">
 												<input type="file" id="image" name="image" required="required" class="form-control">
 											</div>
+											@error('image')
+											{{ $message }}
+											@enderror
 										</div>
 
 										<div class="item form-group">
