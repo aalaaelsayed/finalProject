@@ -9,7 +9,7 @@
                 <h1><strong>@yield('t')</strong></h1>
                 <div class="custom-breadcrumbs"><a href="{{ Route ('index') }}">Home</a> <span class="mx-2">/</span> <strong>@yield('t')</strong></div>
               </div>
-
+              @yield('y')
             </div>
           </div>
         </div>

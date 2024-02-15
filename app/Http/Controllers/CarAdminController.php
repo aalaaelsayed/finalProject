@@ -76,20 +76,25 @@ class CarAdminController extends Controller
         $data = $request->validate([
             'carName'=>'required|string|max:50',
             'content'=>'required|string',
-            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
             'categoryId'=>'required',
-            'doors'=>'required',
-            'passengers'=>'required',
-            'luggage'=>'required',
+            'doors'=>'required|integer',
+            'passengers'=>'required|integer',
+            'luggage'=>'required|integer',
             'price'=>'required',
         ], $messages);
     if ($request->hasFile('image')) {
         $fileName = $this->uploadFile($request->image, 'assets/images');    
         $data['image'] = $fileName;
+        if (file_exists("asset('assets/images/' . $data->ooo)")) {
+            unlink("asset('assets/images/' . $data->ooo)");
+        }
     }
         $data['active'] = isset($request->active);
     Carlist::where('id',$id)->update($data);
     return redirect('admin/cars');
+   //unlink("asset ('assets/images/'. $request->ooo)");
+
     // dd($request->all()); 
  }
 
@@ -111,7 +116,7 @@ class CarAdminController extends Controller
             'categoryId.required'=>'Should be number',
             'passengers.required'=>'Should be number',
             'luggage.required'=>'Should be number',
-            'image.required'=> 'please insrt image',
+            'image.sometimes'=> 'please insrt image',
             'image.mimes'=> 'Incorrect image type',
             'image.max'=> 'Max file size exceeded',
             ];

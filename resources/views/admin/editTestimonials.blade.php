@@ -8,7 +8,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
+						<a href="{{ Route ('index') }}" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
 					</div>
 					<div class="clearfix"></div>
 					<!-- menu profile quick info -->
@@ -115,8 +115,8 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="file" id="image" name="image" required="required" class="form-control">
-												<img src="{{ asset ('Assets/admin/images/'. $Testimonials->image) }}  " alt="" style="width: 300px;">
+												<input type="file" id="image" name="image"  class="form-control" value="{{ asset ('Assets/images/'. $Testimonials->image) }}">
+												<img src="{{ asset ('Assets/images/'. $Testimonials->image) }}  " alt="" style="width: 300px;">
 
 											</div>
 											@error('image')

@@ -51,7 +51,7 @@ class TestimonialsController extends Controller
         $data = $request->validate([
             'clientName'=>'required|string|max:50',
             'profession'=>'required|string',
-            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'sometimes|mimes:png,jpg,jpeg|max:2048',
             'content'=>'required',
         ], $messages);
     if ($request->hasFile('image')) {
@@ -74,7 +74,7 @@ class TestimonialsController extends Controller
          'clientName.string'=>'Should be string',
          'profession.required'=>'Should be string',
          'content.required'=>'Should be string',
-         'image.required'=> 'please insrt image',
+         'image.sometimes'=> 'please insrt image',
          'image.mimes'=> 'Incorrect image type',
          'image.max'=> 'Max file size exceeded',
          ];

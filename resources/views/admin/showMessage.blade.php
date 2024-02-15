@@ -9,7 +9,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
+						<a href="{{ Route ('index') }}" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -57,12 +57,12 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
-                  <h2>Full Name: John Doe</h2>
+                  <h2>Full Name: {{ $contact->first_name.  $contact->last_name}}</h2>
                   <br>
-                  <h2>Email: John@gmail.com</h2>
+                  <h2>Email: {{ $contact->email}}</h2>
                    <br>
                   <h2>Message Content:</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nisi facilis, excepturi ipsum recusandae quidem doloribus veniam quisquam at, dignissimos autem quos iste libero sint architecto voluptatem consectetur possimus nobis.</p>
+                  <p>{{ $contact->message}}</p>
                 </div>
               </div>
             </div>

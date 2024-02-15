@@ -22,12 +22,16 @@ use App\Http\Controllers\CantactController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::fallback(function () {
+    return view('404');
+});
 Route::get('index',[CarController::class,'index'])->name('index');
 Route::get('about',[CarController::class,'about'])->name('about');
 Route::get('blog',[CarController::class,'blog'])->name('blog');
 Route::get('testimonials',[CarController::class,'testimonials'])->name('testimonials');
 Route::get('listing',[CarController::class,'listing'])->name('listing');
 Route::get('Contact',[CarController::class,'Contact'])->name('Contact');
+Route::get('single/{id}',[CarController::class,'single'])->name('single');
 
 /////////////////////
 Route::post('sendmail', [CantactController::class, 'sendmail'])->name('sendmail');

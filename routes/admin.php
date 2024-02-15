@@ -6,6 +6,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestimonialsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MassagesController;
+
 
 
 
@@ -40,6 +42,10 @@ Route::get('createuser',[UserController::class,'create'])->name('createuser');
 Route::post('addusers',[UserController::class,'store'])->name('addusers');
 Route::get('edituser/{id}',[UserController::class,'edit'])->name('edituser');
 Route::put('updateuser/{id}',[UserController::class,'update'])->name('updateuser');
+///////////////////////////
+Route::get('massagelist',[MassagesController::class,'index'])->name('massagelist');
+Route::get('showMassage/{id}',[MassagesController::class,'show'])->name('showMassage');
+Route::get('deletemassage/{id}',[MassagesController::class,'destroy']);
 
 
 });

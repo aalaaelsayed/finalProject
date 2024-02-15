@@ -3,12 +3,15 @@
 @section('content')
 
     
+@include('includes.Testimonials')
 
-    <div class="site-section bg-light">
 
-    @include('includes.testimonialsinside')
+   
+ 
 
-    </div>
+
+
+
     @include('includes.waiting')    
 
     @endsection

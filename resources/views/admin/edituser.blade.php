@@ -10,7 +10,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
+						<a href="{{ Route ('index') }}" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -116,9 +116,7 @@
 
 												</label>
 											</div>
-											@error('active')
-											{{ $message }}
-											@enderror
+										
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="password">Password <span class="required">*</span>

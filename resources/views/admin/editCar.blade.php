@@ -9,7 +9,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
+						<a href="{{ Route ('index') }}" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -151,13 +151,17 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="file" id="image" name="image" required="required" class="form-control">
-												<img src="{{ asset ('Assets/admin/images/'. $Carlists->image) }}  " alt="" style="width: 300px;">
+
+												<input  value ="{{ asset ('assets/images/'. $Carlists->image) }} "type="file" id="image" name="image"  class="form-control"  > 
+												<img src="{{ asset ('assets/images/'. $Carlists->image) }}  " alt="{{ $Carlists->image}}" style="width: 300px;" >
+											
 											</div>
 											@error('image')
 											{{ $message }}
 											@enderror
+											<input type="hidden" value ="{{ asset ('assets/images/'. $Carlists->image)}}" name="ooo" >
 										</div>
+										
 
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Category <span class="required">*</span>

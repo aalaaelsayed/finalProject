@@ -11,7 +11,7 @@
 			<div class="col-md-3 left_col">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="index.html" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
+						<a href="{{ Route ('index') }}" class="site_title"><i class="fa fa-car"></i> <span>Rent Car Admin</span></a>
 					</div>
 
 					<div class="clearfix"></div>
@@ -89,25 +89,18 @@
                         </tr>
                       </thead>
                       <tbody>
+                      @foreach($Contacts as $con)
+
                         <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
+                          <td>{{ $con->first_name.  $con->last_name}}</td>
+                          <td>{{ $con->email}}</td>
+                 
+                          <td> <a  href="showMassage/{{ $con->id }}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="show"> </a></td>
+                          <td><a  href="deletemassage/{{ $con->id }}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
                         </tr>
-                        <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        <tr>
-                          <td>First Name and Last Name</td>
-                          <td>mail@example.com</td>
-                          <td><img src="./images/edit.png" alt="Edit"></td>
-                          <td><img src="./images/delete.png" alt="Delete"></td>
-                        </tr>
-                        
+                 
+                        @endforeach
+
                       </tbody>
                     </table>
                   </div>
