@@ -19,9 +19,9 @@ use App\Http\Controllers\CantactController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 Route::fallback(function () {
     return view('404');
 });
@@ -45,7 +45,7 @@ Route::post('sendmail', [CantactController::class, 'sendmail'])->name('sendmail'
 
 //Auth::routes();
 Auth::routes(['verify'=>true]);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/loginn', [App\Http\Controllers\HomeController::class, 'indexx'])->name('loginn');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'indexxx'])->middleware('verified')->name('/');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/home');
 
 

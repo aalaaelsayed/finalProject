@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-5">
             <div class="custom-pagination">
-            {{ $Carlists->links() }}
+           <span> {{ $Carlists->links() }}</span>
             </div>
           </div>
         </div>

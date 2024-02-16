@@ -38,7 +38,7 @@
           </div>
           <div class="row">
             <div class="col-lg-4 mx-auto">
-              <a href="#" class="d-flex align-items-center play-now mx-auto">
+              <a href="{{ Route ('about') }}" class="d-flex align-items-center play-now mx-auto">
                 <span class="icon">
                   <span class="icon-play"></span>
                 </span>

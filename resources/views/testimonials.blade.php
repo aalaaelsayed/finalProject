@@ -19,8 +19,8 @@
 
 
       @section('title')
-      testimonials
+      Testimonials
       @endsection
       @section('t')
-      testimonials
+      Testimonials
     @endsection

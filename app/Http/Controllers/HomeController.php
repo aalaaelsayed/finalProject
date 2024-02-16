@@ -29,21 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $Carlists = Carlist::where('active', 1)->take(6)->get();
-        $testimonials = Testimonial::where('Published', 1)->take(3)->get();
-        $limitedContents = $Carlists->map(function ($carlist) {
-            return Str::limit($carlist->content, 100);
-        });  
-        $limitedTestimonialsContent = $testimonials->map(function ($testimonial) {
-            return Str::limit($testimonial->content, 100);
-        }); 
-         
-        return view('index', compact("Carlists", "testimonials", "limitedContents", "limitedTestimonialsContent"));
+        return view('home');
 
     }
-    public function indexx()
+   
+    public function indexxx()
     {
-        return view('auth.login');
+        $Carlists =Carlist::get();
+        return view ('admin.cars' ,compact("Carlists"));
+      
+
     }
-    
 }
