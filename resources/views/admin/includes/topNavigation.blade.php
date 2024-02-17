@@ -16,7 +16,7 @@
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="{{ route('log') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
@@ -29,7 +29,8 @@
 								@foreach($message as $messages)
 
 									<li class="nav-item">
-										<a class="dropdown-item">
+									
+										<a class="dropdown-item" href="{{ route('showMassage', ['id' => $messages->id]) }}" >
 											<span class="image"><img src="{{asset('assets/admin/images/img.jpg')}}" alt="Profile Image" /></span>
 											<span>
 												<span> {{$messages->first_name }}</span>
@@ -47,7 +48,7 @@
 									
 									<li class="nav-item">
 										<div class="text-center">
-											<a class="dropdown-item">
+											<a class="dropdown-item"href="{{ route('massagelist') }}" >
 												<strong>See All Alerts</strong>
 												<i class="fa fa-angle-right"></i>
 											</a>

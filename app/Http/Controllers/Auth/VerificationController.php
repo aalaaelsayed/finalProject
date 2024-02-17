@@ -44,6 +44,7 @@ class VerificationController extends Controller
     
     $this->middleware(function ($request, $next) {
         if (auth()->check() && auth()->user()->isAdmin()) {
+            
             auth()->user()->markEmailAsVerified();
         }
         

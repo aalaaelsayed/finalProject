@@ -47,5 +47,5 @@ class User extends Authenticatable implements MustVerifyEmail{
     {
         return $this->active === 1; // Assuming 'active' attribute is set to 1 for admin users
     }
- 
+
 }

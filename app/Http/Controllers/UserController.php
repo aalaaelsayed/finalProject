@@ -28,6 +28,7 @@ class UserController extends Controller
         'name'=>'required|string|max:50',
         'email' => 'required|string|unique:users,email',
         'username' => 'required|unique:users,username',
+        
         'password'=>'required',
         ] ,$messages);
         $data['active'] =isset($request->active);
@@ -51,8 +52,8 @@ class UserController extends Controller
             $messages = $this->messages();
             $data = $request->validate([
                 'name'=>'required|string|max:50',
-                'email'=>'required|string|unique',
-                'username'=>'required|unique',
+                'email' => 'required|string|unique:users,email,'.$id,
+                'username' => 'required|unique:users,username,'.$id,
                 'password'=>'required',
             ], $messages);
    
