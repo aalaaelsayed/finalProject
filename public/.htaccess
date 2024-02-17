@@ -1,16 +1,10 @@
-
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
       Options -MultiViews -Indexes
-    </IfModule>
-    
 
-    RewriteEngine on
-   ErrorDocument 404   http://localhost/finalProject/404.php
-    
-    #DISABLE DIRECTORY INDEXES
-    
-    Options -Indexes
+    </IfModule>
+
+    RewriteEngine On
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

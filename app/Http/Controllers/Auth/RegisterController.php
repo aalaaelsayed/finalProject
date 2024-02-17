@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -56,7 +57,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'username' => ['required', 'string', 'max:255'],
-           // 'active'=>['required'],
+            // 'active' => [], // Add validation rules for 'active' field if needed
 
         ]);
     }
@@ -69,11 +70,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $verification_token = Str::random(60); // Laravel helper function to generate random string
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'username' => $data['name'],
             'password' => Hash::make($data['password']),
+            'verification_token' => $verification_token,
+            'active' => 0, // Set active column to 0 by default
         ]);
+       // return $user;
+
     }
+ 
+
 }

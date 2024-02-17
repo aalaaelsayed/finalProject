@@ -33,7 +33,7 @@ class DemoMail extends Mailable
     {
         return new Envelope(
             from: new Address($this->data['email'], $this->data['first_name']),
-            subject: $this->data['message'] . ' - Contact Us',
+            subject: $this->data['first_name'] . ' - Contact Us',
         );
     }
 
