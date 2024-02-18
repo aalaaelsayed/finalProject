@@ -28,11 +28,10 @@ class UserController extends Controller
         'name'=>'required|string|max:50',
         'email' => 'required|string|unique:users,email',
         'username' => 'required|unique:users,username',
-        
         'password'=>'required',
         ] ,$messages);
         $data['active'] =isset($request->active);
-
+        $data['password'] = bcrypt($data['password']);
              User::create($data);
             return redirect('admin/users');
     }
@@ -56,12 +55,14 @@ class UserController extends Controller
                 'username' => 'required|unique:users,username,'.$id,
                 'password'=>'required',
             ], $messages);
-   
+            $data['password'] = bcrypt($data['password']);
             $data['active'] =isset($request->active);
             User::where('id',$id)->update($data);
             return redirect('admin/users');
         // dd($request->all()); 
     }
+
+
  public function messages(){
     return [
         'name.required'=>'الاسم  المطلوب',

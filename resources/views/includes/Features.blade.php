@@ -16,7 +16,7 @@
               <div class="service-1-contents">
                 <h3>Lorem ipsum dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
+                <p class="mb-0"><a href="{{ Route ('index') }}">Learn more</a></p>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
               <div class="service-1-contents">
                 <h3>Lorem ipsum dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
+                <p class="mb-0"><a href="{{ Route ('index') }}">Learn more</a></p>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
               <div class="service-1-contents">
                 <h3>Lorem ipsum dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
+                <p class="mb-0"><a href="{{ Route ('index') }}">Learn more</a></p>
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@
               <div class="service-1-contents">
                 <h3>Lorem ipsum dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
+                <p class="mb-0"><a href="{{ Route ('index') }}">Learn more</a></p>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
               <div class="service-1-contents">
                 <h3>Lorem ipsum dolor</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
+                <p class="mb-0"><a href="{{ Route ('index') }}">Learn more</a></p>
               </div>
             </div>
           </div>

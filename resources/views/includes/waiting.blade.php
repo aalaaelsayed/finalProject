@@ -6,7 +6,7 @@
             <p class="mb-0 opa-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
           </div>
           <div class="col-lg-5 text-md-right">
-            <a href="{{ Route ('about') }}" class="btn btn-primary btn-white">Rent a car now</a>
+            <a href="{{ Route ('listing') }}" class="btn btn-primary btn-white">Rent a car now</a>
           </div>
         </div>
       </div>

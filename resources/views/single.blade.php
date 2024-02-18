@@ -90,7 +90,7 @@
 
             <div class="pt-5">
 
-              <p>Category:  <a href="#">{{$Carlists->category->categoryName ?? 'No category' }}</a></p>
+              <p>Category:  <a href="{{ Route ('listing') }}">{{$Carlists->category->categoryName ?? 'No category' }}</a></p>
 
             </div>
 
