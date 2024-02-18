@@ -42,9 +42,9 @@ class CarAdminController extends Controller
         'content'=>'required|string',
         'image' => 'required|mimes:png,jpg,jpeg|max:2048',
         'categoryId'=>'required',
-        'doors'=>'required',
-        'passengers'=>'required',
-        'luggage'=>'required',
+        'doors'=>'required|numeric|between:-128,127',
+        'passengers'=>'required|numeric|between:-128,127',
+        'luggage'=>'required|numeric|between:-128,127',
         'price'=>'required|numeric|between:-128,127',
         ] ,$messages);
         $fileName = $this->uploadFile($request->image, 'assets/images');    
