@@ -9,8 +9,7 @@
         
         <div class="row">
         @foreach($testimonials as $test)
-
-          <div class="col-lg-4 mb-4 mb-lg-0">
+        <div class="col-lg-4 mb-4">
             <div class="testimonial-2">
               <blockquote class="mb-4">
                 <p>{{$limitedTestimonialsContent[$loop->index]}}</p>
@@ -26,7 +25,6 @@
             </div>
           </div>
           @endforeach
-          </div>
-      </div>
+   
 
 
