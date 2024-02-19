@@ -153,6 +153,7 @@
 
     @section('y')
 
-    <strong class="text-black"> Posted on May 22, 2020</strong>
+    <strong class="text-black"> Posted on  {{ $Carlists->created_at->format('j M Y') }}</strong>
+
     @endsection
 
